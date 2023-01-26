@@ -8,6 +8,7 @@
         v-for="item in list"
       >
         <p class="vChoice__box" :class="{ active: item.value === current }"></p>
+
         <span class="vChoice__name">{{ item.name }}</span>
       </div>
     </div>
@@ -49,17 +50,19 @@ export default {
   gap: 0.5rem;
 }
 .vChoice__box {
-  width: 15px;
-  height: 15px;
+  border: 1.2px solid #d2d5e0;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 1px solid black;
 }
 .vChoice__title {
   margin-bottom: 0.8rem;
 }
 
 .active.vChoice__box {
-  background-color: aqua;
+  background: url("../../assets/icons/Vector.png") no-repeat 100% 100%;
+  background-size: cover;
+  border: none;
 }
 .vChoice__body {
   display: flex;

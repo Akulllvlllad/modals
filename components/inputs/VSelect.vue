@@ -2,8 +2,9 @@
   <article>
     <h3 class="select__name">{{ title }}</h3>
 
-    <div @click="isOpen = !isOpen" class="select">
+    <div @click="isOpen = !isOpen" class="select" >
       <p class="select__title">{{ current || "Select" }}</p>
+      <span class="select__reset" @click="change('')">+</span>
       <span class="select__reset" @click="change('')">+</span>
       <div class="select__options">
         <p
@@ -41,7 +42,11 @@ export default {
       isOpen: false,
     };
   },
-  methods: {},
+  methods: {
+    hideSelect(){
+      this.$emit('update:isOpen', false)
+    }
+  },
 };
 </script>
 

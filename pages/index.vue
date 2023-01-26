@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="wrapper">
-      <Navigation :pages="pages"  />
+      <Navigation :pages="pages" :changePage="changePage" />
       <Filtres
         :toggleFilters="toggleFilters"
         :filters="filters"
@@ -14,6 +14,11 @@
         :searchTerm="filters.searchTerm"
         :changeSearchTerm="changeSearchTerm"
       />
+      <BattonCreateGroup />
+      <SelectFilterByTime
+        :current="filters.filterByTime"
+        :changeTime="changefilterByTime"
+      />
     </div>
   </div>
 </template>
@@ -22,12 +27,16 @@
 import Navigation from "../components/Navigation.vue";
 import Filtres from "../components/Filtres.vue";
 import search from "../components/search.vue";
+import BattonCreateGroup from "../components/BattonCreateGroup.vue";
+import SelectFilterByTime from "../components/SelectFilterByTime.vue";
 export default {
   name: "IndexPage",
   components: {
     Navigation,
     Filtres,
     search,
+    BattonCreateGroup,
+    SelectFilterByTime,
   },
   data() {
     return {
@@ -42,6 +51,7 @@ export default {
         verify: false,
         category: "",
         typeOfGroup: 0,
+        filterByTime: 0,
       },
     };
   },
@@ -65,7 +75,10 @@ export default {
       this.filters.typeOfGroup = newTypeOfGroup;
     },
     changeSearchTerm: function (e) {
-      this.filters.searchTerm = e.target.value;
+      this.filters.searchTerm = e;
+    },
+    changefilterByTime: function (time) {
+      this.filters.filterByTime = time;
     },
   },
 };

@@ -26,34 +26,36 @@ export default {
 }
 
 .toggle {
-  width: 60px;
+  width: 44px;
+  height: 24px;
   position: relative;
-  height: 30px;
+
   overflow: hidden;
   border-radius: 100px;
-  background-color: grey;
+  background-color: #d2d5e0;
   cursor: pointer;
   transition: all 0.2s ease-in-out 0.1s;
 }
 .toggle__pen {
   position: absolute;
-  height: 26px;
-  width: 26px;
-  background-color: aqua;
+  width: 20px;
+  height: 20px;
+  background: #fbfbfb;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+
   border-radius: 50%;
-  transition: all 0.6s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
   left: 0;
   top: 50%;
   transform: translate(2px, -50%);
 }
 
 .active.toggle {
-  background-color: aqua;
+  background-color: #43a5d2;
 }
 .active.toggle__pen {
-  background-color: grey;
   transform: translate(-2px, -50%);
 
-  left: calc(100% - 26px);
+  left: calc(100% - 20px);
 }
 </style>
